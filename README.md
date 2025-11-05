@@ -71,7 +71,7 @@ XXX
 ```
 
 
-If successful you should see these lines commented:
+If successful, you should see these lines commented:
 ```python
      #if detector == "NRS2" and grating.endswith("M"):
          # Mid-resolution gratings do not project on NRS2.
@@ -79,8 +79,27 @@ If successful you should see these lines commented:
         # raise NoDataOnDetectorError(log_message)
 ```
 
+These lines raise errors when attempting to run the JWST pipeline for IFU data using the second detector (NRS2).
+Commenting them allows the reduction to proceed and access the extended wavelength range.
+
 ---
 
+
+Before running the reduction, make sure to modify the required **reference and calibration files**.  
+You should add or replace these files in the folder defined as your `CRDS_PATH` in the Python script.
+
+For example, if in your script you set:
+
+```python
+os.environ["CRDS_PATH"] = "/path/to/my/folder/"
+```
+
+This is the folder where you must place or update the reference files needed for the extended reduction.
+
+
+> 💡 **Tip:**  
+> It is recommended to create a **separate `CRDS_PATH` folder** for the extended pipeline, distinct from the one you use for the nominal JWST pipeline.  
+> This will prevent conflicts or overwriting of official calibration files.
 
 
 
