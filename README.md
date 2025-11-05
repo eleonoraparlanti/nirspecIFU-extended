@@ -45,6 +45,42 @@ conda activate <env_name>
 pip install jwst==1.18.1
 ```
 
+If you have problems with the installation of the JWST pipeline, please refer to: [jwst](https://github.com/spacetelescope/jwst).
+
+---
+
+### Modification of the pipeline:
+
+We need to modify one pipeline file to extend the nominal wavelength range of the **NIRSpec IFU medium-resolution** data.
+You can locate the folder containing the installed `jwst` package with:
+
+```bash
+cd $(python -c "import site; print(site.getsitepackages()[0])")
+```
+
+Then, you need to comment out **lines 281–284** in the file:
+```bash
+jwst/assign_wcs/nirspec.py
+```
+
+You can either do this manually or automatically by running the following command:
+
+
+```bash
+XXX
+```
+
+
+If successful you should see these lines commented:
+```python
+     #if detector == "NRS2" and grating.endswith("M"):
+         # Mid-resolution gratings do not project on NRS2.
+        # log.critical(log_message)
+        # raise NoDataOnDetectorError(log_message)
+```
+
+---
+
 
 
 
