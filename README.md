@@ -9,7 +9,7 @@ If you use this products in your research, please cite: [Parlanti et. al 2025](X
 This code has been developed and tested with:
 
 - **JWST pipeline:** `1.18.1`, `1.19.1`    
-- **CRDS context:** `1346`
+- **CRDS context:** `1364`
 
 Support for different pipeline versions and contexts will be added as they are released.  
 If you need a specific implementation for another context or pipeline version, please contact:  
@@ -116,10 +116,10 @@ Below is a summary of the calibration files required for different **grating/fil
 
 #### Common to all extensions
 
-| File Type | Filename Pattern |
-|------------|------------------|
-| Wavelength Range | `jwst_nirspec_wavelengthrange_XXXX.asdf` |
-| Cube Parameters | `jwst_nirspec_cubepar_XXXX.fits` |
+| File Type | Context |  Filename Pattern |
+|------------|--|-----------------|
+| Wavelength Range | 1364 | `jwst_nirspec_wavelengthrange_0008.asdf` |
+| Cube Parameters | 1364 | `jwst_nirspec_cubepar_0009.fits` |
 
 You will find the corresponding files for each CTX in the **CTX folder**.
 
