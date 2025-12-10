@@ -133,16 +133,51 @@ You will find the corresponding files for each CTX in the **CTX folder**.
 ---
 
 
-With the new reference files and the patched pipeline, please run your code for data reduction. You will end up with the extended, **yet not flux-calibrated**, cube.
+With the new reference files and the patched pipeline, please run your code for data reduction. You will end up with the extended, **yet not flux-calibrated**, cube. The following steps describe how to apply the flux calibration to this reduced cube using the calibrate_cube.ipynb notebook.
 
 
 
-## Applying the flux calibration to the reduced cube
+## Applying the Flux Calibration to the Reduced Cube
 
+To calibrate the cube, run the `calibrate_cube.ipynb` notebook.  
+Make sure to download the `calibration_files` folder, which contains the values of $$k, \alpha$$, and $$\beta$$ needed to perform the flux calibration and remove second- and third-order contamination.  
 
+### 1. Select the grating and filter
 
+Choose the appropriate grating and filter combination for your dataset. Options are:
 
+- `'g140m_f100lp'`
+- `'g235m_f170lp'`
 
+```python
+# Choose your grating/filter
+grating_filter = 'g140m_f100lp'
+```
 
+### 1. Select the grating and filter
 
+Choose the appropriate grating and filter combination for your dataset. Options are:
 
+- `'g140m_f100lp'`
+- `'g235m_f170lp'`
+
+```python
+# Choose your grating/filter
+grating_filter = 'g140m_f100lp'
+```
+
+### 2. Specify the path to your cube
+
+Insert the path to the cube you want to calibrate:
+
+```python
+# Path to the cube to be calibrated
+cube_path = './data/RM312_jw2057_px0.05_dr_CTX1364_v1.18.1_g140m-f100lp_OD_98.5_skyalign_cgs_s3d.fits'
+```
+
+After running the notebook, the calibrated cube will be saved automatically in the same folder as the original file, with `_calibrated` appended to its filename.
+
+```python
+# Example output:
+# './data/RM312_jw2057_px0.05_dr_CTX1364_v1.18.1_g140m-f100lp_OD_98.5_skyalign_cgs_s3d_calibrated.fits'
+```
